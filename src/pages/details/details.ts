@@ -23,8 +23,8 @@ export class DetailsPage implements OnInit {
 
   getMapsThumbnail() {
     // 640 is max free maps api call
-  	let platformWidth = Math.min(this.platform.width(), 640);
-  	let platformHeight = Math.min(this.platform.height()/2, 640); // fixing this for simplicity
+  	let platformWidth = Math.min(Math.round(this.platform.width()), 640);
+  	let platformHeight = Math.min(Math.round(this.platform.height()/2), 640); // fixing this for simplicity
   	let latitude = this.library.location.latitude;
   	let longitude = this.library.location.longitude;
   	let apiKey = 'AIzaSyAMv4m5Y7mRBrFh1nZOtCyvA-iHTYUDl4E'
