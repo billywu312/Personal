@@ -8,25 +8,23 @@ import { Platform } from 'ionic-angular';
 	templateUrl: 'details.html'
 })
 export class DetailsPage implements OnInit {
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
   	public platform: Platform,
 	private navParams: NavParams) {
   }
 
   @Input() public library: Library;
   @Input() public mapThumbnailUri: String;
-  @Input() public imageWidth: Number;
 
   ngOnInit() {
   	this.library = this.navParams.get('library');
-  	this.imageWidth = this.platform.width();
   	this.mapThumbnailUri = this.getMapsThumbnail();
   }
 
-
   getMapsThumbnail() {
-  	let platformWidth = this.platform.width();
-  	let platformHeight = this.platform.height()/2; // fixing this for simplicity
+    // 640 is max free maps api call
+  	let platformWidth = Math.min(this.platform.width(), 640);
+  	let platformHeight = Math.min(this.platform.height()/2, 640); // fixing this for simplicity
   	let latitude = this.library.location.latitude;
   	let longitude = this.library.location.longitude;
   	let apiKey = 'AIzaSyAMv4m5Y7mRBrFh1nZOtCyvA-iHTYUDl4E'
