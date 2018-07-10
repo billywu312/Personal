@@ -28,7 +28,7 @@ export class DetailsPage implements OnInit {
   	let latitude = this.library.location.latitude;
   	let longitude = this.library.location.longitude;
   	let apiKey = 'AIzaSyAMv4m5Y7mRBrFh1nZOtCyvA-iHTYUDl4E'
-  	let googleMapUri = 'http://maps.googleapis.com/maps/api/staticmap';
+  	let googleMapUri = 'https://maps.googleapis.com/maps/api/staticmap';
   	let mapSize = `${platformWidth}x${platformHeight}`;
   	let mapThumbnailUri = `${googleMapUri}?&size=${mapSize}&markers=label:${this.library.name_}%7C${latitude},${longitude}&key=${apiKey}`;
 
